@@ -1,0 +1,5 @@
+1. Use Multidimensional scaling to reduce dimensionality and plot data
+Documentation: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html#sklearn.manifold.MDS
+Example: http://scikit-learn.org/stable/auto_examples/manifold/plot_mds.html#example-manifold-plot-mds-py
+
+2. Figure out gamma distribution params to distribute emissions

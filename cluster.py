@@ -19,6 +19,7 @@ for i in xrange(no_clusters):
 
 for name, est in estimators.items():
     est.fit(X[7])
+    print est.score(X[7])
     centers = est.cluster_centers_
     for item in est.labels_:
       countmembership[item]+=1
@@ -43,4 +44,12 @@ for i in xrange(np.shape(centers)[0]):
     if centers[i][j]>100:
       f.write('(%s:%f) '%(ChemicalNames[ChemicalDimensionInverse[j]],centers[i][j]))
   f.write('\n')
+
+
+
+'''
+
+print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, km.labels_))
+print("Completeness: %0.3f" % metrics.completeness_score(labels, km.labels_))
+print("V-measure: %0.3f" % metrics.v_measure_score(labels, km.labels_))'''
 
