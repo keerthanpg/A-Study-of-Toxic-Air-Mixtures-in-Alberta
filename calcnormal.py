@@ -58,25 +58,13 @@ for i in xrange(7):
 					x=((dist**2)/2)**0.5
 					y=((dist**2)/2)**0.5
 					mesh_years[i][j][k][l]+=var.pdf([x,y])*discharge['Tonnes_Air']*1000
-					print ('%.9f'%mesh_years[i][j][k][l])
-
-				break
-				
-			print mesh_years[i][j][k]
-			print len(mesh_years[i][j][k])
-			print mesh_years[i][j][k][2]
-			break
-		break
-	break
+					
 
 
-	
-print var.pdf([0,0])
+
 
 g=open('ChemicalDimensions', 'wb')
 json.dump(ChemicalDimensions, g)
 
-'''
 
-for i in range(2007, 2013):
-	filenames='''
+np.save("Mesh", mesh_years, allow_pickle=True, fix_imports=True)
