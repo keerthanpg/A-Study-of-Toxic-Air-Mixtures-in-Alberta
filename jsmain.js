@@ -4,17 +4,17 @@ function initMap() {
     	  Emission= json;
         $.getJSON("FacilityCoordinates.json", function(json) {
           FacilityCoordinates=json;
-          content=FacilityCoordinates["0000004385"];
-          console.log(content);
+          //content=FacilityCoordinates["0000004385"];
+          //console.log(content);
            var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 200,
-          center: {lat: 54.5, lng: -115.0},
+          zoom: 5,
+          center: {lat: 55.5, lng: -115.0},
           mapTypeId: google.maps.MapTypeId.TERRAIN
         });
 
         // Construct the circle for each value in citymap.
         // Note: We scale the area of the circle based on the population.
-        for (var emission in Emission['2006']['206-44-00']) {
+        for (var emission in Emission['2006']['630-08-0']) {
           emissioncentre=FacilityCoordinates[emission['NPRI_ID']]
           // Add the circle for this city to the map.
           var emissionCircle = new google.maps.Circle({
@@ -27,6 +27,8 @@ function initMap() {
             center: emissioncentre,
             radius: emission['Tonnes_Air'] * 1000000
           });
+
+          console.log(emission['Tonnes_Air'] * 1000000)
 
           
         }

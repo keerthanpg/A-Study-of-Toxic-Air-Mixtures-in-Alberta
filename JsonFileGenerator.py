@@ -1,11 +1,14 @@
 import json
 
-name='EmissionByChemical.txt'
+name='FacilityCoordinates.json'
 f=open(name, 'rb')
 FacilityCoordinates=json.load(f)
 Reduced={}
-for i in range(2006,2013):
-	Reduced[str(i)]=FacilityCoordinates[str(i)]
+for k,v in FacilityCoordinates.iteritems():
+	new_v={}
+	new_v['lat']=v['lat']
+	new_v['lng']=v['lon']
+	Reduced[k]=new_v
 
-with open('EmissionByChemical.json', 'wb') as fp:
+with open(name, 'wb') as fp:
     json.dump(Reduced, fp)
