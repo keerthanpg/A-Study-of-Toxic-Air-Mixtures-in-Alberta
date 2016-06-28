@@ -22,11 +22,11 @@
       //var mydata = JSON.parse('EmissionByChemical.json');
       var Emission;
       $.getJSON("EmissionByChemical.json", function(json) {
-    	console.log(json); // this will show the info it in firebug console
-    	Emission= eval("(" +json.responseText + ")");
+    	//console.log(json); // this will show the info it in firebug console
+    	Emission= json
 		});
 	   
-	  document.write(Emission['2006']['7647-01-0'][0]['CHEM_E']);
+	  //document.write(Emission['2006']['7647-01-0'][0]['CHEM_E']);
 	  
       var citymap = {
         chicago: {
@@ -70,6 +70,7 @@
             center: citymap[city].center,
             radius: Math.sqrt(citymap[city].population) * 100
           });
+          window.alert(Emission['2006']['7647-01-0'][0]['CHEM_E']);
         }
 
         
