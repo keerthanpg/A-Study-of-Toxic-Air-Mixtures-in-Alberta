@@ -11,11 +11,12 @@ function initMap() {
           center: {lat: 55.5, lng: -115.0},
           mapTypeId: google.maps.MapTypeId.TERRAIN
         });
-
+          console.log('hi');
         // Construct the circle for each value in citymap.
         // Note: We scale the area of the circle based on the population.
-        for (var emission in Emission['2006']['630-08-0']) {
-          emissioncentre=FacilityCoordinates[emission['NPRI_ID']]
+        for (var i=0;i<Emission['2006']['630-08-0'].length;i++) {
+          //console.log(Emission['2006']['630-08-0'][i]['Tonnes_Air'] * 1000000);
+          emissioncentre=FacilityCoordinates[Emission['2006']['630-08-0'][i]['NPRI_ID']]
           // Add the circle for this city to the map.
           var emissionCircle = new google.maps.Circle({
             strokeColor: '#FF0000',
@@ -25,10 +26,10 @@ function initMap() {
             fillOpacity: 0.35,
             map: map,
             center: emissioncentre,
-            radius: emission['Tonnes_Air'] * 1000000
+            radius: Emission['2006']['630-08-0'][i]['Tonnes_Air']*15
           });
 
-          console.log(emission['Tonnes_Air'] * 1000000)
+          //console.log(Emission['2006']['630-08-0'][i]['Tonnes_Air'] * 1000000);
 
           
         }
