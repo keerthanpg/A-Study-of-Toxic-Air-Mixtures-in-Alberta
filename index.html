@@ -4,6 +4,8 @@
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     	<meta charset="utf-8">
         <title>Circles</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="cssmain.css">
         <!--<link href='http://fonts.googleapis.com/css?family=Titillium+Web:600,400' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="jsmain.js"></script> 
@@ -18,10 +20,12 @@
 
       // First, create an object containing LatLng and population for each city.
       //var mydata = JSON.parse('EmissionByChemical.json');
+      var Emission;
       $.getJSON("EmissionByChemical.json", function(json) {
     	console.log(json); // this will show the info it in firebug console
+    	Emission= eval("(" +json.responseText + ")");
 		});
-	  var Emission = eval("(" +json.responseText + ")");
+	   
 	  document.write(Emission['2006']['7647-01-0'][0]['CHEM_E']);
 	  
       var citymap = {
