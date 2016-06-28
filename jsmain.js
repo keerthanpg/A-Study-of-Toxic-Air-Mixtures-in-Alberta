@@ -9,7 +9,7 @@ function initMap() {
            var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 5,
           center: {lat: 55.5, lng: -115.0},
-          mapTypeId: google.maps.MapTypeId.TERRAIN
+          mapTypeId: google.maps.MapTypeId.ROADMAP
         });
           console.log('hi');
         // Construct the circle for each value in citymap.

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     	<meta charset="utf-8">
         <title>Circles</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="cssmain.css">
         <script type="text/javascript" src="jsmain.js"></script> 
         <!--<link href='http://fonts.googleapis.com/css?family=Titillium+Web:600,400' rel='stylesheet' type='text/css'>
@@ -14,6 +16,45 @@
     </head>
     
   <body>
+
+<div class="jumbo parallax parallax-1"><p>ALBERTA POLLUTION & EMISSION MAP GENERATOR<p></div>
+    
+
+
+  	<div class="container text-center">
+  		<h2>ALBERTA POLLUTION & EMISSION MAP GENERATOR</h2>
+  		<p><em>University of Alberta</em></p>
+  <!--<p>The form below contains two dropdown menus (select lists):</p>-->
+  		<br>
+  		<form role="form">
+			<div class="form-group">
+	  			<label for="year">Select year:</label>
+	  			<select class="form-control" id="sel1">
+	        		<option>2006</option>
+	        		<option>2007</option>
+	        		<option>2008</option>
+	        		<option>2009</option>
+	        		<option>2010</option>
+	        		<option>2011</option>
+	        		<option>2012</option>
+	  			</select>
+	  			<br>
+	  			<label for="year">Select chemical:</label>
+	  			<select class="form-control" id="sel1">
+	      			<option>2006</option>
+			        <option>2007</option>
+			        <option>2008</option>
+			        <option>2009</option>
+			        <option>2010</option>
+			        <option>2011</option>
+			        <option>2012</option>
+		      	</select>
+	  			<br>
+	      		<input type="submit" class="btn btn-info" value="Submit Button">
+	      
+	    	</div>
+    	</form>
+    </div>
     <div id="map"></div>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3N3K2ln2gtikyGLC7bLbCAg0qZhEv9qk&callback=initMap">
