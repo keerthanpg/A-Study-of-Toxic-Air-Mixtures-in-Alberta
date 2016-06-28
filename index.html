@@ -6,8 +6,8 @@
         <title>Circles</title>
         <link rel="stylesheet" type="text/css" href="cssmain.css">
         <!--<link href='http://fonts.googleapis.com/css?family=Titillium+Web:600,400' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="jsmain.js"></script> -->
-        <script type="text/javascript" src="EmissionByChemical.json"></script> 
+        <script type="text/javascript" src="jsmain.js"></script> 
+        <script type="text/javascript" src="EmissionByChemical.json"></script> -->
     </head>
     
   <body>
@@ -17,7 +17,12 @@
       // America.
 
       // First, create an object containing LatLng and population for each city.
-      var mydata = JSON.parse(EmissionByChemical);
+      //var mydata = JSON.parse('EmissionByChemical.json');
+      $.getJSON("EmissionByChemical.json", function(json) {
+    	console.log(json); // this will show the info it in firebug console
+		});
+	  var Emission = eval("(" +json.responseText + ")");
+	  document.write(Emission['2006']['7647-01-0'][0]['CHEM_E']);
 	  
       var citymap = {
         chicago: {
@@ -63,7 +68,7 @@
           });
         }
 
-        alert(mydata['2006'][7647-01-0][0]['CHEM_E']);
+        
       }
     </script>
     <script async defer
