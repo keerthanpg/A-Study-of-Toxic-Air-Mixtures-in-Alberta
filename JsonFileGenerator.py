@@ -1,14 +1,19 @@
 import json
 
-name='FacilityCoordinates.json'
+name='ChemicalNames.json'
 f=open(name, 'rb')
-FacilityCoordinates=json.load(f)
-Reduced={}
-for k,v in FacilityCoordinates.iteritems():
-	new_v={}
-	new_v['lat']=v['lat']
-	new_v['lng']=v['lon']
-	Reduced[k]=new_v
+ChemicalNames=json.load(f)
+NamesInverse={}
+for k,v in ChemicalNames.iteritems():
+	print v
+	NamesInverse[v]=k
 
-with open(name, 'wb') as fp:
-    json.dump(Reduced, fp)
+with open('NamesInverse.json', 'wb') as fp:
+    json.dump(NamesInverse, fp)
+
+with open('NamesInverse', 'wb') as fp:
+    json.dump(NamesInverse, fp)
+
+with open('ChemicalNames', 'wb') as fp:
+	json.dump(ChemicalNames,fp)
+
