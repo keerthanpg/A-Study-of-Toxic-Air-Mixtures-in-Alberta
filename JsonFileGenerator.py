@@ -1,19 +1,23 @@
 import json
 
-name='ChemicalNames.json'
+name='EmissionByChemical.json'
+
+ChemicalNames={}
 f=open(name, 'rb')
-ChemicalNames=json.load(f)
-NamesInverse={}
-for k,v in ChemicalNames.iteritems():
-	print v
-	NamesInverse[v]=k
+Emission=json.load(f)
 
-with open('NamesInverse.json', 'wb') as fp:
-    json.dump(NamesInverse, fp)
-
-with open('NamesInverse', 'wb') as fp:
-    json.dump(NamesInverse, fp)
-
-with open('ChemicalNames', 'wb') as fp:
-	json.dump(ChemicalNames,fp)
+for i in xrange(2006,2013):
+	for chemicals in Emission[str(i)]:
+		if chemicals in ChemicalNames:
+			continue
+		elif len(Emission[str(i)][chemicals])==0:
+			continue
+		else:
+			ChemicalNames[chemicals]=Emission[str(i)][chemicals][0]['CHEM_E']
+			print Emission[str(i)][chemicals][0]['CHEM_E']
+			
+		
+print len(ChemicalNames)
+g=open('ChemicalNames.json', 'wb')
+json.dump(ChemicalNames,g)
 
