@@ -34,7 +34,7 @@
             <div id="home" class="tab-pane fade in active">
                 <h2>Emission Maps</h2>
                 <!--<p>Select year and chemical.</p> -->
-                <form role="form" onsubmit="initMap($(year).value, $(chemicalname).value)">
+                <form role="form" onsubmit="console.log( $(" year ").val(), $("chemicalname ").val())">
                     <div class="form-group">
                         <label for="year">Select year:</label>
                         <select class="form-control" id="year">
@@ -162,15 +162,15 @@
                             <option>Antimony (and its compounds)</option>
                         </select>
                         <br>
-                        <input type="submit" class="btn btn-info" value="Submit Button" onclick="initMap($(year).val(), $(chemicalname).val())>
+                        <input type="submit" class="btn btn-info" value="Submit Button" onclick="passfunction()">
                     </div>
                 </form>
             </div>
-            <div id=" menu1 " class="tab-pane fade ">
-                
-                    <div class="form-group ">
-                        <label for="year ">Select year:</label>
-                        <select class="form-control " id="year ">
+            <div id="menu1" class="tab-pane fade">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="year">Select year:</label>
+                        <select class="form-control" id="year">
                             <option>2006</option>
                             <option>2007</option>
                             <option>2008</option>
@@ -180,20 +180,20 @@
                             <option>2012</option>
                         </select>
                         <br>
-                        <label for="chemical ">Select type:</label>
-                        <select class="form-control " id="chemical ">
+                        <label for="chemical">Select type:</label>
+                        <select class="form-control" id="chemical">
                             <option>Cancer equivalent</option>
                             <option>Non-cancer equivalent</option>
                         </select>
                         <br>
-                        <input type="submit " class="btn btn-info " value="Submit Button " onclick="initMap($(year).val(), $(chemicalname).val()) ">
+                        <input type="submit" class="btn btn-info" value="Submit Button" onclick="initMap($(year).val(), $(chemicalname).val())">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div id="map "></div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3N3K2ln2gtikyGLC7bLbCAg0qZhEv9qk&callback=initMap ">
+    <div id="map"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3N3K2ln2gtikyGLC7bLbCAg0qZhEv9qk&callback=initMap">
     </script>
 </body>
 

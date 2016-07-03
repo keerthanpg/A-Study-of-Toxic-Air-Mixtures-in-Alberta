@@ -1,3 +1,15 @@
+function passfunction() {
+
+    var year = $("year").val();
+    var chemicalname = $("chemicalname").val();
+
+    console.log(year, chemicalname);
+
+    initMap(year, chemicalname);
+
+
+}
+
 function initMap(year, chemicalname) {
     console.log(year)
 
