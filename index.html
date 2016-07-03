@@ -48,7 +48,7 @@
                         </select>
                         <br>
                         <label for="chemical">Select chemical:</label>
-                        <select class="form-control" id="chemical">
+                        <select class="form-control" id="chemicalname">
                             <option>Fluoranthene - PAH</option>
                             <option>Dibenzo(a,h)anthracene - PAH</option>
                             <option>Anthracene</option>
@@ -162,17 +162,15 @@
                             <option>Antimony (and its compounds)</option>
                         </select>
                         <br>
-                        <input type="submit" class="btn btn-info" value="Submit Button">
+                        <input type="submit" class="btn btn-info" value="Submit Button" onclick="initMap($(year).val(), $(chemicalname).val())>
                     </div>
                 </form>
             </div>
-            <div id="menu1" class="tab-pane fade">
-                <h2>Chandler Bing, Guitarist</h2>
-                <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
-                <form role="form">
-                    <div class="form-group">
-                        <label for="year">Select year:</label>
-                        <select class="form-control" id="year">
+            <div id=" menu1 " class="tab-pane fade ">
+                
+                    <div class="form-group ">
+                        <label for="year ">Select year:</label>
+                        <select class="form-control " id="year ">
                             <option>2006</option>
                             <option>2007</option>
                             <option>2008</option>
@@ -182,20 +180,20 @@
                             <option>2012</option>
                         </select>
                         <br>
-                        <label for="chemical">Select type:</label>
-                        <select class="form-control" id="chemical">
+                        <label for="chemical ">Select type:</label>
+                        <select class="form-control " id="chemical ">
                             <option>Cancer equivalent</option>
                             <option>Non-cancer equivalent</option>
                         </select>
                         <br>
-                        <input type="submit" class="btn btn-info" value="Submit Button">
+                        <input type="submit " class="btn btn-info " value="Submit Button " onclick="initMap($(year).val(), $(chemicalname).val()) ">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div id="map"></div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3N3K2ln2gtikyGLC7bLbCAg0qZhEv9qk&callback=initMap">
+    <div id="map "></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3N3K2ln2gtikyGLC7bLbCAg0qZhEv9qk&callback=initMap ">
     </script>
 </body>
 

@@ -1,5 +1,5 @@
 function initMap(year, chemicalname) {
-    console.log(2006)
+    console.log(year)
 
     var Emission;
     $.getJSON("EmissionByChemical.json", function(json) {
