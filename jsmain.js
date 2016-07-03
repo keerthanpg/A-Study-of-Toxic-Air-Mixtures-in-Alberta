@@ -1,4 +1,5 @@
-function initMap() {
+function initMap(year, chemicalname) {
+    console.log(2006)
 
     var Emission;
     $.getJSON("EmissionByChemical.json", function(json) {
@@ -12,7 +13,7 @@ function initMap() {
                 center: { lat: 55.5, lng: -115.0 },
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
-            console.log('hi');
+            //console.log('hi');
             // Construct the circle for each value in citymap.
             // Note: We scale the area of the circle based on the population.
             for (var i = 0; i < Emission['2006']['630-08-0'].length; i++) {

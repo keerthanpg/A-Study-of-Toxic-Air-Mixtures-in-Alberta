@@ -18,10 +18,10 @@
 
 <body>
     <div class="jumbo parallax parallax-1">
-        <p>ALBERTA POLLUTION & EMISSION MAP GENERATOR</p>
+        <p>ALBERTA AIR POLLUTION DATA VISUALISATION </p>
     </div>
     <div class="container text-center">
-        <h2>ALBERTA POLLUTION & EMISSION MAP GENERATOR</h2>
+        <h2>ALBERTA AIR POLLUTION DATA VISUALISATION </h2>
         <p><em>University of Alberta</em></p>
         <!--<p>The form below contains two dropdown menus (select lists):</p>-->
         <br>
@@ -34,7 +34,7 @@
             <div id="home" class="tab-pane fade in active">
                 <h2>Emission Maps</h2>
                 <!--<p>Select year and chemical.</p> -->
-                <form role="form">
+                <form role="form" onsubmit="initMap($(year).value, $(chemicalname).value)">
                     <div class="form-group">
                         <label for="year">Select year:</label>
                         <select class="form-control" id="year">
