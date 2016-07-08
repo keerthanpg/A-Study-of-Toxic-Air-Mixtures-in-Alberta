@@ -17,13 +17,10 @@ for row_index in xrange(1, sheet_C.nrows):
     e= {keys[col_index]: sheet_C.cell(row_index, col_index).value 
          for col_index in xrange(sheet_C.ncols)}
     if d['Cancer_Risk_Score'] !="":
-    	d.pop("CHEM_E")
-    	d.pop("NonCancer_Risk_Score")
-    	cancer_teps[d['CAS_Number']]=d
+        cancer_teps[d['CAS_Number']]=d['Cancer_Risk_Score']
+    
     if e['NonCancer_Risk_Score'] !="":
-    	e.pop("CHEM_E")
-    	e.pop("Cancer_Risk_Score")
-    	noncancer_teps[e['CAS_Number']]=e
+    	noncancer_teps[d['CAS_Number']]=d['NonCancer_Risk_Score']
 
 f=open("CancerScores", 'wb')
 json.dump(cancer_teps,f)

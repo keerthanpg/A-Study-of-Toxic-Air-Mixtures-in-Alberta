@@ -1,70 +1,97 @@
 import numpy as np 
 from scipy.stats import multivariate_normal
-import os
 import json
 import geopy
 from geopy import distance
 from geopy import Point
-import unicodedata
+import math
+import datetime
+print datetime.datetime.now()
+import matplotlib.pyplot as plt
+
+pi=math.pi
+e=math.e
+
 
 mesh=np.load('Points.npy')
 
-f=open('EmissionByChemical.txt', 'rb')
+f=open('FacilityRiskScore', 'rb')
 Emissions=json.load(f)
 
 f=open('DistancesDic', 'rb')
 FacilityCoordinates=json.load(f)
 
-ChemicalDimensions={}
-i=2
-for j in xrange(2006, 2012):
-	for chemical in Emissions[str(j)]:
-		if chemical in ChemicalDimensions:
-			continue
-		else:
-			ChemicalDimensions[chemical]=i
-			i=i+1
-print i
-#print ChemicalDimensions
-
-
 
 var = multivariate_normal(mean=[0,0], cov=[[1,0],[0,1]])
-mesh_years=[mesh, mesh, mesh, mesh, mesh, mesh, mesh]
+mesh_years=[mesh, mesh, mesh, mesh, mesh, mesh, mesh, mesh]
 
+nlat=1223
+nlon=660 #no of divisions in longitude
+
+dellat=(60-49)/nlat
+dellon=(109-120)/nlon
+
+def spiral():
+    X=1223
+    Y=660    
+    x = y = 0
+    dx = 0
+    dy = -1
+    
+    for i in range(10000):
+        if (-X/2 < x <= X/2) and (-Y/2 < y <= Y/2):
+            plt.scatter(x,y)
+            
+
+            # DO STUFF...
+        if x == y or (x < 0 and x == -y) or (x > 0 and x == 1-y):
+            dx, dy = -dy, dx
+        x, y = x+dx, y+dy
+
+
+
+print datetime.datetime.now()
 for i in xrange(7):
-	for j in xrange(1223):
-		for k in xrange(660):
-			print np.shape(mesh_years[i][j][k])
-			for l in xrange(len(ChemicalDimensions)):
-				mesh_years[i][j][k][l+2]=0.0
-			for chemical in Emissions[str(i+2006)]:
-				l=ChemicalDimensions[chemical]
-				print l
-				for discharge in Emissions[str(i+2006)][chemical]:
-					facilityID=discharge['NPRI_ID']
+	for facility in Emissions[str(i)]:
+		try:
+			source=Point('%s %s' %(FacilityCoordinates[facilityID]['lat'], FacilityCoordinates[facilityID]['lon']))
+			j,k=int ((FacilityCoordinates[facilityID]['lat']-49)/dellat),int((FacilityCoordinates[facilityID]['lon']+109)/dellon) #j and k are lower right nodes\
+
+		except:
+			continue
+	for j in xrange(100):
+		for k in xrange(50):
+			
+			mesh_years[i][j][k][0]=0.0
+			mesh_years[i][j][k][1]=0.0
+			for chemical in Emissions[str(i+2006)]:	
+				try:
+					Cancer_risk=CancerScores[chemical]		
+				except:
+					Cancer_risk=0	
+				try:
+					NonCancer_risk=NonCancerScores[chemical]		
+				except:
+					NonCancer_risk=0
+				l=0
+				for k,v in Emissions[str(i+2006)][chemical].iteritems():
+					facilityID=v['NPRI_ID']	
+
+					print l
+					l=l+1				
+					
 					try:
 						source=Point('%s %s' %(FacilityCoordinates[facilityID]['lat'], FacilityCoordinates[facilityID]['lon']))
+						dest=Point('%s %s'%(mesh_years[i][j][k][0], mesh_years[i][j][k][1]))
+						dist=distance.distance(source,dest).kilometers
+						P=1/(2*pi)*(e**(-dist*dist/2))						
+						mesh_years[i][j][k][0]+=P*v['Tonnes_Air']*1000*Cancer_risk
+						mesh_years[i][j][k][1]+=P*v['Tonnes_Air']*1000*NonCancer_risk
 					except:
-						continue						
-					dest=Point('%s %s'%(mesh_years[i][j][k][0], mesh_years[i][j][k][1]))
-					sourcelat=FacilityCoordinates[facilityID]['lat']
-					sourcelon=FacilityCoordinates[facilityID]['lon']
-					destlat=mesh_years[i][j][k][0]
-					destlon=mesh_years[i][j][k][1]
-					dist=distance.distance(source,dest).kilometers
-					if dist>200:
 						continue
-					x=((dist**2)/2)**0.5
-					y=((dist**2)/2)**0.5
-					mesh_years[i][j][k][l]+=var.pdf([x,y])*discharge['Tonnes_Air']*1000
+			print k						
+		print j
+	print i
 					
-
-
-
-
-g=open('ChemicalDimensions', 'wb')
-json.dump(ChemicalDimensions, g)
-
-
+print datetime.datetime.now()
 np.save("Mesh", mesh_years, allow_pickle=True, fix_imports=True)
