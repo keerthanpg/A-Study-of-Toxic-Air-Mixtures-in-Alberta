@@ -60,7 +60,7 @@ for facilityID in FacilityRiskScores:
 						except KeyError:
 							continue
 					except IndexError:
-						continue
+							continue
 					except Exception as e: 
 						print(e)
 			if x == y or (x < 0 and x == -y) or (x > 0 and x == 1-y):
