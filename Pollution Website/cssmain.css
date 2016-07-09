@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
+}
+
+.nav-tabs li a {
+    color: #777;
+}
+
+.parallax-1 {
+    background-image: url("pollution2.jpg");
+}
+
+.container {
+    padding: 80px 120px;
+}
+
+.jumbo.parallax p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 50px;
+    line-height: 600px;
+    font-family: Lato;
+    font-weight: 100;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.parallax {
+    height: 650px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
