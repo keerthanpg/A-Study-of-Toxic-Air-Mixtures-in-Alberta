@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Map Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="cssmain.css">
+    <script type="text/javascript" src="jsmain.js"></script>
+    <!--<link href='http://fonts.googleapis.com/css?family=Titillium+Web:600,400' rel='stylesheet' type='text/css'>
+        
+        <script type="text/javascript" src="EmissionByChemical.json"></script> -->
+</head>
+
+<body>
+    <div class="jumbo parallax parallax-1">
+        <p>ALBERTA AIR POLLUTION DATA VISUALISATION </p>
+    </div>
+    <div class="container text-center">
+        <h2>ALBERTA AIR POLLUTION DATA VISUALISATION </h2>
+        <p><em>University of Alberta</em></p>
+        <!--<p>The form below contains two dropdown menus (select lists):</p>-->
+        <br>
+        <!--<h3 class="text-center">From The Blog</h3> -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Emission maps</a></li>
+            <li><a data-toggle="tab" href="#menu1">Toxicity Maps</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h2>Emission Maps</h2>
+                <!--<p>Select year and chemical.</p> -->
+                <form role="form" onsubmit="console.log( $(" year ").val(), $("chemicalname ").val())">
+                    <div class="form-group">
+                        <label for="year">Select year:</label>
+                        <select class="form-control" id="year">
+                            <option>2006</option>
+                            <option>2007</option>
+                            <option>2008</option>
+                            <option>2009</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                        </select>
+                        <br>
+                        <label for="chemical">Select chemical:</label>
+                        <select class="form-control" id="chemicalname">
+                            <option>1,2,4-Trimethylbenzene</option>
+                            <option>1,2-Dichloroethane</option>
+                            <option>1,3-Butadiene</option>
+                            <option>1,4-Dioxane</option>
+                            <option>2-Butoxyethanol</option>
+                            <option>3-Methylcholanthrene - PAH</option>
+                            <option>7,12-Dimethylbenz(a)anthracene - PAH</option>
+                            <option>7H-Dibenzo(c,g)carbazole - PAH</option>
+                            <option>Acenaphthene - PAH</option>
+                            <option>Acenaphthylene - PAH</option>
+                            <option>Acetaldehyde</option>
+                            <option>Acetonitrile</option>
+                            <option>Acrolein</option>
+                            <option>Aluminum (fume or dust)</option>
+                            <option>Ammonia (total)</option>
+                            <option>Anthracene</option>
+                            <option>Antimony (and its compounds)</option>
+                            <option>Arsenic (and its compounds)</option>
+                            <option>Benzene</option>
+                            <option>Benzo(a)anthracene - PAH</option>
+                            <option>Benzo(a)phenanthrene - PAH</option>
+                            <option>Benzo(a)pyrene - PAH</option>
+                            <option>Benzo(b)fluoranthene - PAH</option>
+                            <option>Benzo(e)pyrene - PAH</option>
+                            <option>Benzo(g,h,i)perylene - PAH</option>
+                            <option>Benzo(j)fluoranthene - PAH</option>
+                            <option>Benzo(k)fluoranthene - PAH</option>
+                            <option>Biphenyl</option>
+                            <option>Cadmium (and its compounds)</option>
+                            <option>Carbon disulphide</option>
+                            <option>Carbon monoxide</option>
+                            <option>Carbonyl sulphide</option>
+                            <option>Chlorine dioxide</option>
+                            <option>Chlorine</option>
+                            <option>Chloroform</option>
+                            <option>Chromium (and its compounds)</option>
+                            <option>Cobalt (and its compounds)</option>
+                            <option>Copper (and its compounds)</option>
+                            <option>Cresol (all isomers and their salts)</option>
+                            <option>Cumene</option>
+                            <option>Cyclohexane</option>
+                            <option>Dibenz(a,h)acridine - PAH</option>
+                            <option>Dibenz(a,j)acridine - PAH</option>
+                            <option>Dibenzo(a,h)anthracene - PAH</option>
+                            <option>Dibenzo(a,i)pyrene - PAH</option>
+                            <option>Dichloromethane</option>
+                            <option>Dicyclopentadiene</option>
+                            <option>Diethanolamine (and its salts)</option>
+                            <option>Dioxins and furans - total</option>
+                            <option>Ethylbenzene</option>
+                            <option>Ethylene glycol</option>
+                            <option>Ethylene oxide</option>
+                            <option>Ethylene</option>
+                            <option>Fluoranthene - PAH</option>
+                            <option>Fluorene - PAH</option>
+                            <option>Formaldehyde</option>
+                            <option>Formic acid</option>
+                            <option>HCFC-22</option>
+                            <option>Hexachlorobenzene</option>
+                            <option>Hexavalent chromium (and its compounds)</option>
+                            <option>Hydrochloric acid</option>
+                            <option>Hydrogen fluoride</option>
+                            <option>Hydrogen sulphide</option>
+                            <option>i-Butyl alcohol</option>
+                            <option>Indeno(1,2,3-c,d)pyrene - PAH</option>
+                            <option>Isopropyl alcohol</option>
+                            <option>Lead (and its compounds)</option>
+                            <option>Manganese (and its compounds)</option>
+                            <option>Mercury (and its compounds)</option>
+                            <option>Methanol</option>
+                            <option>Methyl ethyl ketone</option>
+                            <option>Methyl isobutyl ketone</option>
+                            <option>Methyl tert-butyl ether</option>
+                            <option>Methylenebis(phenylisocyanate)</option>
+                            <option>Molybdenum trioxide</option>
+                            <option>n,n-Dimethylformamide</option>
+                            <option>Naphthalene</option>
+                            <option>n-Butyl alcohol</option>
+                            <option>n-Hexane</option>
+                            <option>Nickel (and its compounds)</option>
+                            <option>Nitrate ion in solution at pH >= 6.0</option>
+                            <option>Nitrogen oxides (expressed as NO2)</option>
+                            <option>N-Methyl-2-pyrrolidone</option>
+                            <option>PAHs, total unspeciated</option>
+                            <option>Perylene - PAH</option>
+                            <option>Phenanthrene - PAH</option>
+                            <option>Phenol (and its salts)</option>
+                            <option>Phosphorus (total)</option>
+                            <option>Phosphorus (yellow or white)</option>
+                            <option>PM - Total Particulate Matter</option>
+                            <option>PM10 - Particulate Matter below 10 Microns</option>
+                            <option>PM2.5 - Particulate Matter below 2.5 Microns</option>
+                            <option>Polymeric diphenylmethane diisocyanate</option>
+                            <option>Propylene</option>
+                            <option>Pyrene - PAH</option>
+                            <option>Selenium (and its compounds)</option>
+                            <option>Silver (and its compounds)</option>
+                            <option>Styrene</option>
+                            <option>Sulphur dioxide</option>
+                            <option>Sulphuric acid</option>
+                            <option>Tetrachloroethylene</option>
+                            <option>Toluene</option>
+                            <option>Toluenediisocyanate (mixed isomers)</option>
+                            <option>Total Reduced Sulphur (TRS) - [MOE]</option>
+                            <option>Trichloroethylene</option>
+                            <option>Triethylamine</option>
+                            <option>Vanadium (except when in an alloy) and its compounds</option>
+                            <option>Vinyl chloride</option>
+                            <option>Volatile Organic Compounds (VOCs)</option>
+                            <option>Xylene (mixed isomers)</option>
+                            <option>Zinc (and its compounds)</option>
+                        </select>
+                        <br>
+                        <label for="usr">Radius:</label>
+                        <input type="text" class="form-control" id="radius" value="500">
+                        <br>
+                        <input type="button" class="btn btn-info" value="Submit Button" onclick="initMap()">
+                    </div>
+                </form>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="year">Select year:</label>
+                        <select class="form-control" id="year">
+                            <option>2006</option>
+                            <option>2007</option>
+                            <option>2008</option>
+                            <option>2009</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                        </select>
+                        <br>
+                        <label for="chemical">Select type:</label>
+                        <select class="form-control" id="chemical">
+                            <option>Cancer equivalent</option>
+                            <option>Non-cancer equivalent</option>
+                        </select>
+                        <br>
+                        <input type="button" class="btn btn-info" value="Submit Button" onclick="initMap()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3N3K2ln2gtikyGLC7bLbCAg0qZhEv9qk&callback=initMap">
+    </script>
+</body>
+
+</html>
