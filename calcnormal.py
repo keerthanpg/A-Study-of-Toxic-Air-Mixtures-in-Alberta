@@ -41,7 +41,7 @@ for facilityID in FacilityRiskScores:
 		x = y = 0
 		dx = 0
 		dy = -1
-		for i in range(10000):
+		for i in range(40000):
 			if (-X/2 < x <= X/2) and (-Y/2 < y <= Y/2):
 				destlat=x+x0
 				destlon=y+y0
@@ -70,4 +70,4 @@ for facilityID in FacilityRiskScores:
 		continue
 	
 print datetime.datetime.now()
-np.save("Mesh", mesh_years, allow_pickle=True, fix_imports=True)
+np.save("Mesh100", mesh_years, allow_pickle=True, fix_imports=True)
